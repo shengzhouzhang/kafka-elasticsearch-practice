@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  logstash:
+    build: .
+    network_mode: host
+    environment:
+      KAFKA_CONNECT: localhost:9092
+      GROUP_ID: test-123
+      TOPIC: test-1

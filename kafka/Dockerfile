@@ -19,7 +19,3 @@ RUN wget "http://apache.mirror.digitalpacific.com.au/kafka/1.0.0/kafka_2.12-1.0.
 RUN tar -xvzf ./kafka.tgz
 
 WORKDIR kafka_2.12-1.0.0
-
-COPY kafka.sh kafka.sh
-COPY kafka.properties kafka.properties
-COPY zookeeper.sh zookeeper.sh

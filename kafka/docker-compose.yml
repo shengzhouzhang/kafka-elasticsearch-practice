@@ -2,13 +2,17 @@ version: '3'
 
 services:
   zookeeper:
-    image: wurstmeister/zookeeper
+    image: zookeeper
+    volumes:
+      - zookeeper-data:/data
     ports:
       - "2181:2181"
     networks:
       - kafka-net
   kafka:
     image: ches/kafka
+    volumes:
+      - kafka-data:/data
     networks:
       - kafka-net
     ports:
@@ -17,6 +21,12 @@ services:
       ZOOKEEPER_IP: zookeeper
     depends_on:
       - zookeeper
+
+volumes:
+  zookeeper-data:
+    external: true
+  kafka-data:
+    external: true
 
 networks:
   kafka-net:
